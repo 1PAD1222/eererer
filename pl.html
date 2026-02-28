@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sariya | Aesthetic Modern Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background: linear-gradient(135deg,#e0f2fe,#dbeafe,#f0f9ff);
+    color:#0f172a;
+    overflow-x:hidden;
+}
+
+/* Animated Background Blobs */
+
+.blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(100px);
+    opacity:0.5;
+    animation:move 15s infinite alternate ease-in-out;
+}
+
+.blob1{
+    width:400px;
+    height:400px;
+    background:#93c5fd;
+    top:-100px;
+    left:-100px;
+}
+
+.blob2{
+    width:350px;
+    height:350px;
+    background:#bfdbfe;
+    bottom:-120px;
+    right:-100px;
+}
+
+@keyframes move{
+    0%{transform:translate(0,0);}
+    100%{transform:translate(100px,50px);}
+}
+
+/* Floating Emojis */
+
+.floating{
+    position:fixed;
+    font-size:22px;
+    opacity:0.6;
+    animation:float 6s infinite ease-in-out;
+}
+
+.f1{top:20%; left:5%;}
+.f2{top:60%; right:6%; animation-delay:2s;}
+.f3{bottom:20%; left:8%; animation-delay:4s;}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+/* Navbar */
+
+nav{
+    position:fixed;
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(255,255,255,0.6);
+    backdrop-filter:blur(15px);
+    z-index:1000;
+}
+
+nav h2{
+    color:#2563eb;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#1e3a8a;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#2563eb;
+}
+
+/* Hero */
+
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:0 20px;
+}
+
+.hero h1{
+    font-size:75px;
+    font-weight:700;
+    background: linear-gradient(90deg,#2563eb,#60a5fa,#2563eb);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.typing{
+    font-size:24px;
+    margin-top:20px;
+    color:#334155;
+    min-height:40px;
+}
+
+/* Sections */
+
+section{
+    padding:120px 8%;
+    position:relative;
+}
+
+.section-title{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:80px;
+    color:#1e3a8a;
+}
+
+/* Cards */
+
+.card-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:40px;
+}
+
+.card{
+    width:330px;
+    padding:35px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.6);
+    backdrop-filter:blur(25px);
+    box-shadow:0 15px 40px rgba(37,99,235,0.15);
+    cursor:pointer;
+    transition:0.5s;
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    top:-50%;
+    left:-50%;
+    width:200%;
+    height:200%;
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,0.4),transparent);
+    transform:rotate(25deg);
+    transition:0.7s;
+}
+
+.card:hover::before{
+    left:100%;
+}
+
+.card:hover{
+    transform:translateY(-15px);
+    box-shadow:0 25px 50px rgba(37,99,235,0.25);
+}
+
+.card h3{
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+.card p{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.5s ease;
+    line-height:1.8;
+    color:#334155;
+}
+
+/* Scroll animation */
+
+.hidden{
+    opacity:0;
+    transform:translateY(40px);
+    transition:all 1s;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* Footer */
+
+footer{
+    text-align:center;
+    padding:50px;
+    color:#2563eb;
+    font-weight:500;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+
+<div class="floating f1">✨</div>
+<div class="floating f2">🦋</div>
+<div class="floating f3">💙</div>
+
+<nav>
+    <h2>Sariya 💎</h2>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#personality">Personality</a></li>
+        <li><a href="#interests">Interests</a></li>
+    </ul>
+</nav>
+
+<div class="hero">
+    <h1>Sariya</h1>
+    <div class="typing" id="typing"></div>
+</div>
+
+<section id="about">
+    <h2 class="section-title hidden">🌊 About Me</h2>
+    <div class="card-container">
+        <div class="card hidden" onclick="expandCard(this)">
+            <h3>💠 Identity</h3>
+            <p>I am a disciplined and visionary Class 10 student committed to excellence, structure, and consistent growth in both academics and character development.</p>
+        </div>
+        <div class="card hidden" onclick="expandCard(this)">
+            <h3>📘 Academic Approach</h3>
+            <p>I adopt a strategic and organized learning methodology that allows me to perform efficiently while maintaining conceptual clarity.</p>
+        </div>
+        <div class="card hidden" onclick="expandCard(this)">
+            <h3>🌟 Core Principles</h3>
+            <p>Integrity, resilience, adaptability, and responsibility define my academic and personal journey.</p>
+        </div>
+    </div>
+</section>
+
+<section id="personality">
+    <h2 class="section-title hidden">🌸 My Personality</h2>
+    <div class="card-container">
+        <div class="card hidden" onclick="expandCard(this)">
+            <h3>⚡ Multitasking</h3>
+            <p>I efficiently balance academics, extracurricular involvement, and self-improvement with strong time management skills.</p>
+        </div>
+        <div class="card hidden" onclick="expandCard(this)">
+            <h3>🗣 Leadership & Communication</h3>
+            <p>I demonstrate confident communication abilities and collaborative skills within team environments.</p>
+        </div>
+        <div class="card hidden" onclick="expandCard(this)">
+            <h3>💫 Positive & Growth-Oriented</h3>
+            <p>I approach challenges with optimism, viewing every obstacle as a stepping stone towards growth.</p>
+        </div>
+    </div>
+</section>
+
+<section id="interests">
+    <h2 class="section-title hidden">☁ My Interests</h2>
+    <div class="card-container">
+        <div class="card hidden" onclick="expandCard(this)">
+            <h3>🎨 Creative Exploration</h3>
+            <p>I enjoy exploring innovative ideas and enhancing both analytical and creative skills through meaningful engagement.</p>
+        </div>
+        <div class="card hidden" onclick="expandCard(this)">
+            <h3>📈 Continuous Learning</h3>
+            <p>Self-development and intellectual curiosity drive my aspiration for long-term success.</p>
+        </div>
+        <div class="card hidden" onclick="expandCard(this)">
+            <h3>🚀 Future Aspirations</h3>
+            <p>I aspire to achieve excellence while contributing positively to society through knowledge and discipline.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+Designed & Developed with 💙 by Sariya | © 2026
+</footer>
+
+<script>
+
+/* Expand cards */
+function expandCard(card){
+    let p = card.querySelector("p");
+    p.style.maxHeight = p.style.maxHeight ? null : p.scrollHeight + "px";
+}
+
+/* Typing Effect */
+const text = "Class 10 Student • Multitasking • Growth-Oriented • Creative Thinker 💙";
+let i = 0;
+function typing(){
+    if(i < text.length){
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing, 50);
+    }
+}
+typing();
+
+/* Scroll Reveal */
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+document.querySelectorAll(".hidden").forEach((el)=>observer.observe(el));
+
+</script>
+
+</body>
+</html>
